@@ -9,7 +9,7 @@ After a while, they upgraded the label list to 54 but the final goal
 is to predict the 45 OARs (merging some overlapping regions from 54 to 45).
 
 
-## Conducted processing steps:
+# Conducted processing steps:
 
     1 - Intensity clipping applied to the volumes to increase the contrast.
     The intensity of the enhanced volumes were clipped in the range of [-400,2000]
@@ -34,7 +34,7 @@ is to predict the 45 OARs (merging some overlapping regions from 54 to 45).
     masks in ".mha" format with the size of [45,...] which essentially is a 
     4D binary tensor in which each layer stands for one binary structure.
 
-## code structure:
+# code structure:
    
 The structure of the code is in line with the above-described steps and follow
 the instruction (in, out paths) provided by the organizer:
@@ -58,10 +58,10 @@ https://github.com/HiLab-git/SegRap2023
     to convert the output of nnUnet into 4D .mha tensors.
     
     
-## Requirements:
+# Requirements:
     The whole scripts is compatible with nnUnet requirements.
     
-## Additional notes:
+# Additional notes:
     In the 'Docker' branch I added another script to download the model
     checkpoint from GoogleDrive.
     `weight_dl.py`
