@@ -1,5 +1,5 @@
 #FROM pytorch/pytorch:1.13.0-cuda11.6-cudnn8-devel
-FROM nvcr.io/nvidia/pytorch:22.12-py3
+FROM nvcr.io/nvidia/pytorch:21.12-py3
 
 RUN apt-get update -y
 RUN apt-get install unzip
