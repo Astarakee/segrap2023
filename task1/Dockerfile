@@ -1,33 +1,30 @@
 #FROM pytorch/pytorch:1.13.0-cuda11.6-cudnn8-devel
-FROM python:3.10-slim
+FROM nvcr.io/nvidia/pytorch:22.12-py3
 
-RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get update -y
 RUN apt-get install unzip
+WORKDIR /opt
 
-RUN groupadd -r user && useradd -m --no-log-init -r -g user user
-RUN python -m pip install --user -U pip && python -m pip install --user pip-tools
+## Clone and Install nnUNet v1
+RUN git clone --branch nnunetv1  https://github.com/MIC-DKFZ/nnUNet.git
+RUN pip install -e nnUNet
 
-RUN mkdir -p /opt/app /input /output /opt/nnUNet_trained_models/nnUNet/3d_fullres \
-    /opt/nnUNet_raw_data_base /opt/nnUNet_preprocessed && chown user:user /opt/app /input /output /opt/nnUNet_trained_models/nnUNet/3d_fullres \
-    /opt/nnUNet_raw_data_base /opt/nnUNet_preprocessed
-    
 
-WORKDIR /opt/app
-ENV PATH="/home/app/.local/bin:${PATH}"
+RUN mkdir SegRap23
+WORKDIR /opt/SegRap23
 
-RUN python -m pip install --user -U pip
-COPY --chown=app:app requirements.txt /opt/app/requirements.txt
-COPY --chown=app:app tools /opt/app/tools 
-COPY --chown=app:app main.py /opt/app/main.py
-COPY --chown=app:app weight_dl.py /opt/app/weight_dl.py
+## Copy SegRap Code
+COPY requirements.txt .
+COPY weight_dl.py .
+COPY main.py .
+COPY tools tools/
+## Install requirements
+RUN pip install -r requirements.txt
 
-RUN python -m pip install --user torch==1.12.0+cu116 torchvision==0.13.0+cu116 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu116
-RUN pip install -e /opt/app/tools/nnUNet
-RUN python -m pip install --user -r requirements.txt
-RUN python -m weight_dl
-RUN unzip Task606_SegRap1.zip -d /opt/nnUNet_trained_models/nnUNet/3d_fullres
-RUN chown user:user /opt/nnUNet_trained_models/nnUNet/3d_fullres/Task606_SegRap1/
-RUN rm Task606_SegRap1.zip
-ENV RESULTS_FOLDER="/opt/nnUNet_trained_models:${RESULTS_FOLDER}"
+## Download Trained Model and store it in /opt/nnUNet_trained_models/nnUNet/3d_fullres
+RUN python weight_dl.py
+RUN mkdir -p /opt/nnUNet_trained_models/nnUNet/3d_fullres
+RUN unzip /opt/app/Task606_SegRap1 -d /opt/nnUNet_trained_models/nnUNet/3d_fullres
+ENV RESULTS_FOLDER=/opt/nnUNet_trained_models
 
-CMD ["python","main.py"]
+CMD ["python","main.py", "-i", "/input","-o","/output"]
