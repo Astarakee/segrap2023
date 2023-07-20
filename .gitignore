@@ -1,0 +1,7 @@
+*.h5
+*.nii
+*.nii.gz
+*.mgz
+*.pdf
+*.pyc
+*.mha
