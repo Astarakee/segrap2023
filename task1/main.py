@@ -10,7 +10,6 @@ args = parser.parse_args()
 
 main_path_in = args.i
 save_path_out = args.o
-
 main_path_in = os.path.join(main_path_in, 'images')
 save_path_out = os.path.join(save_path_out, 'images')
 
@@ -25,7 +24,7 @@ def main():
     print('\n'*4)
     print('Segmentation process finished successfully!')
     print('\n'*4)
-    main_reformat(os.path.join(save_path_out, 'images'))
+    main_reformat(save_path_out)
     print('\n'*4)
     print('The pipeline was executed successfully')
     return None
