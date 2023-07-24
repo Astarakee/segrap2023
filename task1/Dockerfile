@@ -1,13 +1,11 @@
-#FROM pytorch/pytorch:1.13.0-cuda11.6-cudnn8-devel
 FROM nvcr.io/nvidia/pytorch:22.04-py3
 
 RUN apt-get update -y
 RUN apt-get install unzip
 WORKDIR /opt
 
-## Clone and Install nnUNet v1
-RUN git clone --branch nnunetv1  https://github.com/MIC-DKFZ/nnUNet.git
-RUN pip install -e nnUNet
+## Clone and Install totalsegmentor(and nnUNet v1)
+RUN pip install TotalSegmentator
 
 
 RUN mkdir SegRap23
