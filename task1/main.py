@@ -5,7 +5,7 @@ from tools.label_reformulate import main_reformat
 from tools.cropping_stuff import get_body_mask, get_bounding_box, get_cropped_volumes, crop_to_fullres
 
 parser = argparse.ArgumentParser(description='SegRap2023 Challenge_taks1')
-parser.add_argument('-i', type=str, help='main path to input data', required=True)
+parser.add_argument('-i', type=str, help='main path to data with two subdirs standing for two modalities', required=True)
 parser.add_argument('-o', type=str, help='main path to save masks', required=True)
 args = parser.parse_args()
 
