@@ -1,6 +1,6 @@
 # Docker Packaging and Model Inference for Task2 of SegRap Challenge 2023 (GTVs)
 
-To build the SegRap Docker Image:
+To build the segrap2023_gtv_segmentationcontainer Docker Image:
 
 ```shell
 docker build . -t segrap2023_gtv_segmentationcontainer 
