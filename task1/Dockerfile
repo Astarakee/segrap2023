@@ -26,5 +26,5 @@ RUN unzip /opt/app/Task606_SegRap1 -d /opt/nnUNet_trained_models/nnUNet/3d_fullr
 ENV RESULTS_FOLDER=/opt/nnUNet_trained_models
 RUN adduser user
 USER user
-
+RUN chmod -R 777 /opt
 CMD ["python","main.py", "-i", "/input","-o","/output"]
