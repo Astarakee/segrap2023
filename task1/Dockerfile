@@ -15,7 +15,7 @@ RUN chmod -R 777 /opt/TOTALSEG/3d_fullres
 RUN chmod -R 777 /opt/app
 
 # Totalseg stuff
-ENV TOTALSEG_WEIGHTS_PATH = /opt/TOTALSEG/
+ENV TOTALSEG_WEIGHTS_PATH=/opt/TOTALSEG/
 
 ## Clone and Install totalsegmentor(and nnUNet v1)
 RUN pip install TotalSegmentator
