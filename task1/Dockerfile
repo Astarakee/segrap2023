@@ -11,6 +11,7 @@ RUN mkdir /opt/app/
 
 RUN chmod -R 777 SegRap23
 RUN chmod -R 777 /opt/nnUNet_trained_models/nnUNet/3d_fullres
+RUN chmod -R 777 /opt/TOTALSEG/3d_fullres
 RUN chmod -R 777 /opt/app
 
 # Totalseg stuff
