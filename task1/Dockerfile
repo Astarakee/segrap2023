@@ -1,12 +1,12 @@
 FROM nvcr.io/nvidia/pytorch:22.04-py3
 
-
-RUN adduser user
-USER user
-
 RUN apt-get update -y
 RUN apt-get install unzip
 WORKDIR /opt
+
+
+RUN adduser user
+USER user
 
 ## Clone and Install totalsegmentor(and nnUNet v1)
 RUN pip install TotalSegmentator
