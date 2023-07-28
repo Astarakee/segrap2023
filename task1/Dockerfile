@@ -6,7 +6,7 @@ WORKDIR /opt
 
 RUN mkdir SegRap23
 RUN mkdir -p /opt/nnUNet_trained_models/nnUNet/3d_fullres
-RUN mkdir -p /opt/TOTALSEG/3d_fullres
+RUN mkdir -p /opt/TOTALSEG/nnUNet/3d_fullres
 RUN mkdir /opt/app/
 
 RUN chmod -R 777 SegRap23
@@ -38,7 +38,7 @@ RUN pip install -r requirements.txt
 RUN python weight_dl.py
 
 RUN unzip /opt/app/Task606_SegRap1 -d /opt/nnUNet_trained_models/nnUNet/3d_fullres
-RUN unzip /opt/app/Task269_Body_extrem_6mm_1200subj -d /opt/TOTALSEG/3d_fullres
+RUN unzip /opt/app/Task269_Body_extrem_6mm_1200subj -d /opt/TOTALSEG/nnUNet/3d_fullres
 ENV RESULTS_FOLDER=/opt/nnUNet_trained_models
 
 
