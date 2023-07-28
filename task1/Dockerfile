@@ -24,5 +24,6 @@ RUN python weight_dl.py
 RUN mkdir -p /opt/nnUNet_trained_models/nnUNet/3d_fullres
 RUN unzip /opt/app/Task606_SegRap1 -d /opt/nnUNet_trained_models/nnUNet/3d_fullres
 ENV RESULTS_FOLDER=/opt/nnUNet_trained_models
-
+RUN adduser user
+USER user
 CMD ["python","main.py", "-i", "/input","-o","/output"]
