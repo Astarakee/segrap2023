@@ -27,4 +27,6 @@ ENV RESULTS_FOLDER=/opt/nnUNet_trained_models
 RUN adduser user
 USER user
 RUN chmod -R 777 /opt/SegRap23
+RUN chmod -R 777 /opt/nnUNet_trained_models
+
 CMD ["python","main.py", "-i", "/input","-o","/output"]
