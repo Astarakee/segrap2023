@@ -11,12 +11,12 @@ RUN mkdir /opt/app/
 RUN chmod -R 777 SegRap23
 RUN chmod -R 777 /opt/nnUNet_trained_models/nnUNet/3d_fullres
 RUN chmod -R 777 /opt/app
-RUN chmod -R 777 /opt/conda
-RUN adduser user
-USER user
 
 ## Clone and Install totalsegmentor(and nnUNet v1)
 RUN pip install TotalSegmentator
+
+RUN adduser user
+USER user
 
 
 WORKDIR /opt/SegRap23
