@@ -36,7 +36,6 @@ RUN pip install -r requirements.txt
 
 ## Download Trained Model and store it in /opt/nnUNet_trained_models/nnUNet/3d_fullres
 RUN python weight_dl.py
-
 RUN unzip /opt/app/Task606_SegRap1 -d /opt/nnUNet_trained_models/nnUNet/3d_fullres
 RUN unzip /opt/app/Task269_Body_extrem_6mm_1200subj -d /opt/TOTALSEG/nnUNet/3d_fullres
 ENV RESULTS_FOLDER=/opt/nnUNet_trained_models

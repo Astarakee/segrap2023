@@ -1,6 +1,6 @@
 import gdown
 
-weight_gdrive = "https://drive.google.com/uc?id=1HcoyD74deen1jcOPyYB0z8iMxhD4b50y"
+weight_gdrive = "https://drive.google.com/uc?id=1fj1wAI1Xj7ykWtayKAIXZSZ4FkHoqGqU"
 total_weight = "https://drive.google.com/uc?id=17rfov8knJC6TyXiBHI4HR4ks49YI7ew6"
 dst_unzip = "/opt/app/"
 dst_unzip_totalseg = "/opt/app/"
