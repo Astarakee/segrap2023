@@ -44,7 +44,7 @@ def main():
     print('\n'*5)
     print('Segmenting the cropped volume begins ...')
     print('\n'*5)   
-    os.system('nnUNet_predict -i %s -o %s -t 606 -m 3d_fullres -tr nnUNetTrainerV2_noMirroring -f=all --disable_tta --num_threads_nifti_save 1' % (nnunet_in, nnunet_out))
+    os.system('nnUNet_predict -i %s -o %s -t 606 -m 3d_fullres -tr nnUNetTrainerV2_noMirroring -f=all --disable_tta  --mode fast' % (nnunet_in, nnunet_out))
     
     print('\n'*5)
     print('Projecting cropped mask into full resolutional masks begins ...')
