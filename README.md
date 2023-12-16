@@ -1,4 +1,4 @@
-# Winning submission to the SegRap 2023 MICCAI challenge
+# Winning submission to the [SegRap 2023](https://segrap2023.grand-challenge.org/segrap2023/) MICCAI challenge
 ## Inference models for tasks 1 (OAR segmentation) and 2 (GTV segmentation) of SegRap Challenge 2023.
 ## The submitted model won the first rank for task 2 and 6th rank for task 1 in the final(test) phase of the challenge.
 
@@ -29,3 +29,6 @@ To run the prediction on new data:
 ```shell
 docker run --rm --gpus <GPU NUM> -v <PATH/TO/LOCAL/INPUT_FOLDER>:/input/images/ -v </PATH/TO/LOCAL/OUTPUT_FOLDER>:/output/images/ --shm-size 2g segrap2023_gtv_segmentationcontainer
 ```
+Please note that the `Input Path` must contain two subdirectories inclduing `./images/head-neck-ct/` (non-contrast-ct images) and `images/head-neck-contrast-enhanced-ct/` (contrast-ct images)
+with volumetric images in `.mha` file format.
+More details regarding the data structure and formats can be found in [SegRap official repo](https://github.com/HiLab-git/SegRap2023)
