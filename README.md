@@ -4,6 +4,7 @@
 This repo contains the codes and pre-trained weights for the winning submission to the SegRap 2023 MICCAI challenge.
 The code was developed based on [nnUNet](https://github.com/MIC-DKFZ/nnUNet) and [TotalSegmentator](https://github.com/wasserth/TotalSegmentator).
 
+### Run the inference via docker
 Inference codes for tasks one and two are separated into `./task1` and `./task2` subdirs.
 
 To build the segrap2023_oar_segmentationcontainer (task1) Docker Image:
@@ -31,3 +32,13 @@ docker run --rm --gpus <GPU NUM> -v <PATH/TO/LOCAL/INPUT_FOLDER>:/input/images/ 
 Please note that the `Input Path` must contain two subdirectories inclduing `./images/head-neck-ct/` (non-contrast-ct images) and `images/head-neck-contrast-enhanced-ct/` (contrast-ct images)
 with volumetric images in `.mha` file format.
 More details regarding the data structure and formats can be found in [SegRap official repo](https://github.com/HiLab-git/SegRap2023)
+
+### Citation
+If you found this work useful for your research, please consider citing:
+```shell
+@arXiv{Astaraki2023,
+>  title = { Fully Automatic Segmentation of Gross Target Volume and Organs-at-Risk for Radiotherapy Planning of Nasopharyngeal Carcinoma }, <br> author = {Astaraki, Mehdi and Bendazzoli, Simone and Toma-Dasu, Iuliana}, <br>
+  url = {https://doi.org/10.48550/arXiv.2310.02972}, <br>
+  year = {2023} <br>
+}
+```
