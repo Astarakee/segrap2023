@@ -37,8 +37,6 @@ More details regarding the data structure and formats can be found in [SegRap of
 If you found this work useful for your research, please consider citing:
 ```shell
 @arXiv{Astaraki2023,
->  title = { Fully Automatic Segmentation of Gross Target Volume and Organs-at-Risk for Radiotherapy Planning of Nasopharyngeal Carcinoma }, <br> author = {Astaraki, Mehdi and Bendazzoli, Simone and Toma-Dasu, Iuliana}, <br>
-  url = {https://doi.org/10.48550/arXiv.2310.02972}, <br>
-  year = {2023} <br>
-}
+>  title = { Fully Automatic Segmentation of Gross Target Volume and Organs-at-Risk for Radiotherapy Planning of Nasopharyngeal Carcinoma }, <br> author = {Astaraki, Mehdi and Bendazzoli, Simone and Toma-Dasu, Iuliana},
+  url = {https://doi.org/10.48550/arXiv.2310.02972}, year = {2023}}
 ```
