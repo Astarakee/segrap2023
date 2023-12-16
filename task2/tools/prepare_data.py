@@ -43,8 +43,8 @@ def main_prepare(main_in, main_out):
         img_array1, img_itk1, _, img_spacing1, img_origin1, img_direction1 = read_nifti(src_ch1)
         img_array2, _, _, _, _, _ = read_nifti(src_ch2)    
         
-        arr_enh_ch1 = windowing_intensity(img_array1, -400, 2000)
-        arr_ch2 = windowing_intensity(img_array2, -300, 800)
+        arr_enh_ch1 = windowing_intensity(img_array1, -1000, 1000)
+        arr_ch2 = windowing_intensity(img_array2, -600, 600)
         
         write_nifti_from_vol(arr_enh_ch1, img_origin1, img_spacing1, img_direction1, dst_ch1)
         write_nifti_from_vol(arr_ch2, img_origin1, img_spacing1, img_direction1, dst_ch2)

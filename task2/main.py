@@ -4,7 +4,7 @@ from tools.prepare_data import main_prepare
 from tools.label_reformulate import main_reformat
 from tools.cropping_stuff import get_body_mask, get_bounding_box, get_cropped_volumes, crop_to_fullres
 
-parser = argparse.ArgumentParser(description='SegRap2023 Challenge_taks1')
+parser = argparse.ArgumentParser(description='SegRap2023 Challenge_taks2')
 parser.add_argument('-i', type=str, help='main path to data with two subdirs standing for two modalities', required=True)
 parser.add_argument('-o', type=str, help='main path to save masks', required=True)
 args = parser.parse_args()
@@ -44,7 +44,7 @@ def main():
     print('\n'*5)
     print('Segmenting the cropped volume begins ...')
     print('\n'*5)   
-    os.system('nnUNet_predict -i %s -o %s -t 606 -m 3d_fullres -tr nnUNetTrainerV2_noMirroring -f=all --disable_tta  --mode fast' % (nnunet_in, nnunet_out))
+    os.system('nnUNet_predict -i %s -o %s -t 609 -m 3d_fullres --disable_tta' % (nnunet_in, nnunet_out))
     
     print('\n'*5)
     print('Projecting cropped mask into full resolutional masks begins ...')

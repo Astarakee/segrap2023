@@ -7,8 +7,8 @@ from .paths_dirs_stuff import path_contents_pattern, create_path
 
 
 def main_reformat(main_out):
-    seg_in = os.path.join(main_out, 'seg_temp1')
-    nii_out = os.path.join(main_out, 'seg_temp2')
+    seg_in = os.path.join(main_out, 'seg_fullres_int')
+    nii_out = os.path.join(main_out, 'seg_fullres_separate')
     mha_out = os.path.join(main_out, 'head-neck-segmentation')
     create_path(mha_out)
     seg_files = path_contents_pattern(seg_in, '.nii.gz')
@@ -139,18 +139,17 @@ def main_reformat(main_out):
                 temp_mask[sub_label_idx] = 200
                 temp_mask[temp_mask!=200] = 0
                 temp_mask[temp_mask==200] = 1
-                
-            temp_itk = sitk.GetImageFromArray(temp_mask)
+            
+            temp_itk = sitk.GetImageFromArray(temp_mask, isVector=False)
             temp_itk.SetSpacing(seg_spacing)
             temp_itk.SetOrigin(seg_origin)
             temp_itk.SetDirection(seg_direction)
-            dst_path_nii = os.path.join(subject_folder_nii, values+'.nii.gz')
-            sitk.WriteImage(temp_itk, dst_path_nii)
-            
+            # dst_path_nii = os.path.join(subject_folder_nii, values+'.nii.gz')
+            # sitk.WriteImage(temp_itk, dst_path_nii)            
             #seg_mask_4d[keys,...] = temp_mask
             stacked.append(temp_itk)
-            output_itk = sitk.JoinSeries(stacked)
+            output_itk = sitk.JoinSeries(stacked)         
             
-        sitk.WriteImage(output_itk, dst_path_mha)
+        sitk.WriteImage(output_itk, dst_path_mha, True)
         
     return None
