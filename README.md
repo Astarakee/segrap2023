@@ -38,3 +38,6 @@ If you found this work useful for your research, please consider citing:
 
 arXiv{Astaraki2023, title = { Fully Automatic Segmentation of Gross Target Volume and Organs-at-Risk for Radiotherapy Planning of Nasopharyngeal Carcinoma }, <br> author = {Astaraki, Mehdi and Bendazzoli, Simone and Toma-Dasu, Iuliana}, <br/> url = {https://doi.org/10.48550/arXiv.2310.02972}, year = {2023}}
 
+### Acknowledgment
+This model was developed, evaluated, and submitted by Mehdi Astaraki, and [Simone Bendazzoli](https://github.com/SimoneBendazzoli93).
+
